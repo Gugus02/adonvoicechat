@@ -1,0 +1,16 @@
+[
+{
+  "modid": "addonvoicechat",
+  "name": "Addon Voice Chat",
+  "description": "addon for a voice chat at BTS",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Gugus"],
+  "credits": "this is my first mod",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,13 @@
+{
+  "megaphone.push":
+  {
+    "category": "item",
+    "sounds":
+            [
+              {
+                "name": "addonvoicechat:item/megaphone/push",
+                "stream": true
+              }
+            ]
+  }
+}
