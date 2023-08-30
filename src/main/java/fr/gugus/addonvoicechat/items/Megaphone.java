@@ -3,10 +3,6 @@ package fr.gugus.addonvoicechat.items;
 
 import fr.gugus.addonvoicechat.utils.handlers.SoundsHandler;
 import fr.gugus.addonvoicechat.utils.handlers.VoiceHandler;
-import fr.nathanael2611.modularvoicechat.api.StartVoiceRecordEvent;
-import fr.nathanael2611.modularvoicechat.api.StopVoiceRecordEvent;
-import fr.nathanael2611.modularvoicechat.api.VoiceKeyEvent;
-import fr.nathanael2611.modularvoicechat.client.voice.audio.MicroManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -44,12 +40,8 @@ public class Megaphone extends Item {
 
             megaphoneOpen = true;
 
-            System.out.println(megaphoneOpen);
-
         }else {
             megaphoneOpen = false;
-
-            System.out.println(megaphoneOpen);
 
         }
 
@@ -60,5 +52,6 @@ public class Megaphone extends Item {
 
         return new ActionResult<>(EnumActionResult.SUCCESS, heldItem);
     }
+
 
 }
