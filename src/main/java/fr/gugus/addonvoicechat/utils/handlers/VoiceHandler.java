@@ -9,14 +9,20 @@ import fr.nathanael2611.modularvoicechat.proxy.ClientProxy;
 
 public class VoiceHandler {
 
-    boolean toggleOff = false;
-
     public VoiceHandler(boolean megaphone){
+
+        boolean toggleOff = false;
 
         VoiceKeyEvent  voiceKeyEvent = new VoiceKeyEvent(ClientProxy.getConfig().get(ClientConfig.TOGGLE_TO_TALK).getAsBoolean());
 
         if (!voiceKeyEvent.isToggleToTalk()){
-            this.toggleOff = true;
+
+            toggleOff = true;
+
+        }else if(toggleOff){
+
+            toggleOff = false;
+
         }
 
         if (megaphone){
@@ -39,13 +45,8 @@ public class VoiceHandler {
 
                 ClientProxy.getConfig().set(ClientConfig.TOGGLE_TO_TALK, new JsonPrimitive(false));
 
-                if (MicroManager.isRunning() && MicroManager.getHandler().isSending()) {
-
-                    MicroManager.getHandler().stop();
-
-                }
-
-            }else if (MicroManager.isRunning() && MicroManager.getHandler().isSending()) {
+            }
+            if (MicroManager.isRunning() && MicroManager.getHandler().isSending()) {
 
                 MicroManager.getHandler().stop();
 

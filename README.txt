@@ -1,53 +1,38 @@
--------------------------------------------
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+------------------------------------------------------------------------------------------------------------------------
+Addon Voice Chat
+------------------------------------------------------------------------------------------------------------------------
+FR
+Createur : gugus
+L'addon fonctionne avec le mod modulardVoicechat de nathanael,
+Il rajoutera un megaphone et des escargot-phone de one piece,
+Le mod est actuellement de developement pour le serveur beyond the seas https://discord.gg/Q6V2YE4a
+    qui est toujour en developement,
+========================================================================================================================
+Commit
+    Megaphone
+    Avec un click droit avec l'item en main le micro s'active en mod toggel to talk même avec le push to talk
+            mais il quand le push est active il ne se remet pas a la desactivation du megaphone (au second click droit),
+            [le megaphone est fait de cette fasont car je n'est pas trouver comment implémenter le fait de detecter
+            quandle click droit reste enfoncer avec l'item en main, si vous savez comment fair je suis preneur :) ]
 
-Note also that the patches are built against "unrenamed" MCP source code (aka
-srgnames) - this means that you will not be able to read them directly against
-normal code.
+    Escargot-phone
+    non implementer.
 
-Source pack installation information:
+------------------------------------------------------------------------------------------------------------------------
+EN
+Creator: gugus
+The addon works with nathanael's modulardVoicechat,
+It will add a megaphone and snail-phones from one piece,
+The mod is currently in development for the beyond the seas server https://discord.gg/Q6V2YE4a
+    which is still in development,
+========================================================================================================================
+Commit
+    Megaphone
+    Right-click on the item to activate the microphone in mod toggel to talk, even with push to talk.
+            but when the push is active it doesn't reset when the megaphone is deactivated (with the second right
+            click), [the megaphone is made this way because I haven't figured out how to implement the fact of detecting
+            when the right click remains depressed with the item in hand, if you know how to do it I'd love to hear
+            from you :) ]
 
-Standalone source installation
-==============================
-
-See the Forge Documentation online for more detailed instructions:
-http://mcforge.readthedocs.io/en/latest/gettingstarted/
-
-Step 1: Open your command-line and browse to the folder where you extracted the zip file.
-
-Step 2: You're left with a choice.
-If you prefer to use Eclipse:
-1. Run the following command: "gradlew genEclipseRuns" (./gradlew genEclipseRuns if you are on Mac/Linux)
-2. Open Eclipse, Import > Existing Gradle Project > Select Folder 
-   or run "gradlew eclipse" to generate the project.
-(Current Issue)
-4. Open Project > Run/Debug Settings > Edit runClient and runServer > Environment
-5. Edit MOD_CLASSES to show [modid]%%[Path]; 2 times rather then the generated 4.
-
-If you prefer to use IntelliJ:
-1. Open IDEA, and import project.
-2. Select your build.gradle file and have it import.
-3. Run the following command: "gradlew genIntellijRuns" (./gradlew genIntellijRuns if you are on Mac/Linux)
-4. Refresh the Gradle Project in IDEA if required.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can run "gradlew --refresh-dependencies" to refresh the local cache. "gradlew clean" to reset everything {this does not affect your code} and then start the processs again.
-
-Should it still not work, 
-Refer to #ForgeGradle on EsperNet for more information about the gradle environment.
-or the Forge Project Discord discord.gg/UvedJ9m
-
-Forge source installation
-=========================
-MinecraftForge ships with this code and installs it as part of the forge
-installation process, no further action is required on your part.
-
-LexManos' Install Video
-=======================
-https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
-
-For more details update more often refer to the Forge Forums:
-http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+    Snail-phone
+    not implemented.
