@@ -1,8 +1,12 @@
 package fr.gugus.addonvoicechat.items;
 
 
+import com.google.gson.JsonPrimitive;
 import fr.gugus.addonvoicechat.utils.handlers.SoundsHandler;
-import fr.gugus.addonvoicechat.utils.handlers.VoiceHandler;
+import fr.nathanael2611.modularvoicechat.api.VoiceKeyEvent;
+import fr.nathanael2611.modularvoicechat.client.voice.audio.MicroManager;
+import fr.nathanael2611.modularvoicechat.config.ClientConfig;
+import fr.nathanael2611.modularvoicechat.proxy.ClientProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -14,6 +18,7 @@ import net.minecraft.world.World;
 
 public class Megaphone extends Item {
 
+    public boolean toggle = false;
     public boolean megaphoneOpen = false;
 
     public Megaphone(String name) {
@@ -35,17 +40,44 @@ public class Megaphone extends Item {
 
         worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, SoundsHandler.MEGAPHONE_PUSH, SoundCategory.AMBIENT, 1.0F, 1.0F);
 
+        VoiceKeyEvent voiceKeyEvent = new VoiceKeyEvent(ClientProxy.getConfig().get(ClientConfig.TOGGLE_TO_TALK).getAsBoolean());
 
+        if (!voiceKeyEvent.isToggleToTalk()) {
+
+            toggle = true;
+
+            ClientProxy.getConfig().set(ClientConfig.TOGGLE_TO_TALK, new JsonPrimitive(true));
+
+        }else if (toggle){
+
+            ClientProxy.getConfig().set(ClientConfig.TOGGLE_TO_TALK, new JsonPrimitive(false));
+
+            System.out.println("toggle");
+
+            toggle = false;
+
+        }
         if (megaphoneOpen == false){
+
+
+            if (MicroManager.isRunning() && !MicroManager.getHandler().isSending()) {
+
+                MicroManager.getHandler().start();
+            }
 
             megaphoneOpen = true;
 
         }else {
+
+            if (MicroManager.isRunning() && MicroManager.getHandler().isSending()) {
+
+                MicroManager.getHandler().stop();
+
+            }
+
             megaphoneOpen = false;
 
         }
-
-        new VoiceHandler(megaphoneOpen);
 
 
         playerIn.setActiveHand(handIn);
